@@ -1,12 +1,12 @@
-// ================================
+
 // CONFIGURATION
-// ================================
+
 
 const API_BASE_URL = 'http://localhost:5000/api';
 
-// ================================
+
 // NAVIGATION & PAGE SWITCHING
-// ================================
+
 
 const navLinks = document.querySelectorAll('.nav-link');
 const pages = document.querySelectorAll('.page');
@@ -29,9 +29,7 @@ navLinks.forEach(link => {
     });
 });
 
-// ================================
 // API UTILITY
-// ================================
 
 async function apiCall(endpoint, options = {}) {
     try {
@@ -55,9 +53,7 @@ async function apiCall(endpoint, options = {}) {
     }
 }
 
-// ================================
 // HOME PAGE - WORKFLOW CARD
-// ================================
 
 const tellWorkflowBtn = document.getElementById('tellWorkflowBtn');
 const workflowCard = document.getElementById('workflowCard');
@@ -80,9 +76,7 @@ document.addEventListener('click', (e) => {
     }
 });
 
-// ================================
 // CHAT FUNCTIONALITY
-// ================================
 
 const chatMessages = document.getElementById('chatMessages');
 const chatInput = document.getElementById('chatInput');
@@ -183,9 +177,7 @@ chatInput.addEventListener('keypress', (e) => {
     }
 });
 
-// ================================
 // SCHEDULE PAGE
-// ================================
 
 let currentScheduleId = null;
 
@@ -240,9 +232,7 @@ function createStudyBlockElement(block) {
     return blockDiv;
 }
 
-// ================================
 // WORKFLOW FORM SUBMISSION
-// ================================
 
 const workflowInput = document.querySelector('.workflow-input');
 const submitBtn = document.querySelector('.submit-btn');
@@ -288,9 +278,7 @@ submitBtn.addEventListener('click', async () => {
     }
 });
 
-// ================================
 // SMOOTH SCROLL
-// ================================
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -303,9 +291,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     });
 });
 
-// ================================
 // HEADER SCROLL EFFECT
-// ================================
 
 const header = document.querySelector('.header');
 window.addEventListener('scroll', () => {
@@ -317,9 +303,7 @@ window.addEventListener('scroll', () => {
     }
 });
 
-// ================================
 // KEYBOARD SHORTCUTS
-// ================================
 
 document.addEventListener('keydown', (e) => {
     if (e.altKey) {
@@ -337,9 +321,7 @@ document.addEventListener('keydown', (e) => {
     }
 });
 
-// ================================
 // ANIMATIONS ON LOAD
-// ================================
 
 window.addEventListener('load', () => {
     const scheduleBlocks = document.querySelectorAll('.study-block');
@@ -355,9 +337,7 @@ window.addEventListener('load', () => {
     checkBackendHealth();
 });
 
-// ================================
 // BACKEND HEALTH CHECK
-// ================================
 
 async function checkBackendHealth() {
     const data = await apiCall('/health');
@@ -373,9 +353,8 @@ async function checkBackendHealth() {
     }
 }
 
-// ================================
 // SHAKE ANIMATION
-// ================================
+
 
 const style = document.createElement('style');
 style.textContent = `
@@ -387,9 +366,7 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// ================================
 // CONSOLE WELCOME
-// ================================
 
 console.log('%cFocusFlow-AI', 'font-size: 24px; font-weight: bold; background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent;');
 console.log('%cDeveloper Mode Active', 'font-size: 14px; color: #10b981;');
@@ -399,3 +376,4 @@ console.log('  Escape: Close workflow card');
 console.log('\nBackend API:');
 console.log(`  Base URL: ${API_BASE_URL}`);
 console.log('  Checking connection...');
+
