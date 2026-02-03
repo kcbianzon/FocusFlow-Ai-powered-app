@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FocusFlow-AI | Smart Scheduling for Students</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Sticky Navigation Header -->
+    <header class="header">
+        <div class="container">
+            <div class="logo">
+                <span class="logo-icon">◉</span>
+                <span class="logo-text">FocusFlow-AI</span>
+            </div>
+            <nav class="nav">
+                <a href="#home" class="nav-link active" data-page="home">Home</a>
+                <a href="#ask-ai" class="nav-link" data-page="ask-ai">Ask-AI</a>
+                <a href="#schedule" class="nav-link" data-page="schedule">Schedule</a>
+                <a href="#framework" class="nav-link" data-page="framework">Framework</a>
+                <a href="#about" class="nav-link" data-page="about">About</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content Container -->
+    <main class="main-content">
+        
+        <!-- HOME PAGE -->
+        <section id="home" class="page active">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1 class="hero-title">What is FocusFlow?</h1>
+                    <p class="hero-description">
+                        FocusFlow AI is an offline-first smart scheduling app that helps students turn priorities and deadlines into a clear, personalized study plan—enhanced with AI when online.
+                    </p>
+                    <button class="cta-button" id="tellWorkflowBtn">
+                        <span>Tell Workflow</span>
+                        <svg class="cta-icon" width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M4 10h12m0 0l-4-4m4 4l-4 4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+                
+                <div class="workflow-card" id="workflowCard">
+                    <div class="workflow-header">
+                        <h3>Tell Workflow</h3>
+                        <button class="close-btn" id="closeWorkflowBtn">×</button>
+                    </div>
+                    <textarea 
+                        class="workflow-input" 
+                        placeholder="Describe your goals, subjects, schedules, and priorities...
+
+Example: 'I need to study for finals in Math, Physics, and Chemistry. I have 2 weeks, prefer morning study sessions, and Math is my top priority.'"
+                    ></textarea>
+                    <button class="submit-btn">Generate Schedule</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- ASK-AI PAGE -->
+        <section id="ask-ai" class="page">
+            <div class="chat-container">
+                <div class="chat-header">
+                    <h2>Ask FocusFlow AI</h2>
+                    <p>Get personalized study advice and scheduling help</p>
+                </div>
+                
+                <div class="chat-messages" id="chatMessages">
+                    <!-- Mock messages -->
+                    <div class="message ai-message">
+                        <div class="message-avatar">AI</div>
+                        <div class="message-content">
+                            <p>Hello! I'm your FocusFlow AI assistant. How can I help you optimize your study schedule today?</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="chat-input-container">
+                    <input 
+                        type="text" 
+                        class="chat-input" 
+                        id="chatInput"
+                        placeholder="Ask me anything about scheduling, productivity, or study strategies..."
+                    />
+                    <button class="send-btn" id="sendBtn">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+                            <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- SCHEDULE PAGE -->
+        <section id="schedule" class="page">
+            <div class="schedule-container">
+                <div class="schedule-header">
+                    <h2>Your Weekly Schedule</h2>
+                    <div class="week-selector">
+                        <button class="week-nav">←</button>
+                        <span class="week-label">Week of Feb 1 - Feb 7, 2026</span>
+                        <button class="week-nav">→</button>
+                    </div>
+                </div>
+                
+                <div class="schedule-grid">
+                    <!-- Monday -->
+                    <div class="day-column">
+                        <div class="day-header">
+                            <span class="day-name">Monday</span>
+                            <span class="day-date">Feb 1</span>
+                        </div>
+                        <div class="study-block priority-high">
+                            <div class="block-time">9:00 - 11:00 AM</div>
+                            <div class="block-subject">Mathematics</div>
+                            <div class="block-topic">Calculus: Derivatives</div>
+                        </div>
+                        <div class="study-block priority-medium">
+                            <div class="block-time">2:00 - 4:00 PM</div>
+                            <div class="block-subject">Physics</div>
+                            <div class="block-topic">Mechanics Review</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Tuesday -->
+                    <div class="day-column">
+                        <div class="day-header">
+                            <span class="day-name">Tuesday</span>
+                            <span class="day-date">Feb 2</span>
+                        </div>
+                        <div class="study-block priority-high">
+                            <div class="block-time">9:00 - 11:00 AM</div>
+                            <div class="block-subject">Mathematics</div>
+                            <div class="block-topic">Practice Problems</div>
+                        </div>
+                        <div class="study-block priority-low">
+                            <div class="block-time">3:00 - 4:30 PM</div>
+                            <div class="block-subject">Chemistry</div>
+                            <div class="block-topic">Organic Chemistry</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Wednesday -->
+                    <div class="day-column">
+                        <div class="day-header">
+                            <span class="day-name">Wednesday</span>
+                            <span class="day-date">Feb 3</span>
+                        </div>
+                        <div class="study-block priority-medium">
+                            <div class="block-time">10:00 AM - 12:00 PM</div>
+                            <div class="block-subject">Physics</div>
+                            <div class="block-topic">Lab Report</div>
+                        </div>
+                        <div class="study-block priority-high">
+                            <div class="block-time">2:00 - 4:00 PM</div>
+                            <div class="block-subject">Mathematics</div>
+                            <div class="block-topic">Integration Techniques</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Thursday -->
+                    <div class="day-column">
+                        <div class="day-header">
+                            <span class="day-name">Thursday</span>
+                            <span class="day-date">Feb 4</span>
+                        </div>
+                        <div class="study-block priority-medium">
+                            <div class="block-time">9:00 - 11:00 AM</div>
+                            <div class="block-subject">Chemistry</div>
+                            <div class="block-topic">Reaction Mechanisms</div>
+                        </div>
+                        <div class="study-block priority-low">
+                            <div class="block-time">1:00 - 2:30 PM</div>
+                            <div class="block-subject">Review Session</div>
+                            <div class="block-topic">Week Summary</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Friday -->
+                    <div class="day-column">
+                        <div class="day-header">
+                            <span class="day-name">Friday</span>
+                            <span class="day-date">Feb 5</span>
+                        </div>
+                        <div class="study-block priority-high">
+                            <div class="block-time">9:00 AM - 12:00 PM</div>
+                            <div class="block-subject">Mathematics</div>
+                            <div class="block-topic">Mock Exam</div>
+                        </div>
+                        <div class="study-block priority-medium">
+                            <div class="block-time">2:00 - 3:30 PM</div>
+                            <div class="block-subject">Physics</div>
+                            <div class="block-topic">Problem Solving</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Weekend -->
+                    <div class="day-column weekend">
+                        <div class="day-header">
+                            <span class="day-name">Weekend</span>
+                            <span class="day-date">Feb 6-7</span>
+                        </div>
+                        <div class="study-block priority-low">
+                            <div class="block-time">Flexible</div>
+                            <div class="block-subject">Catch-up & Review</div>
+                            <div class="block-topic">Light review sessions</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FRAMEWORK PAGE -->
+        <section id="framework" class="page">
+            <div class="framework-container">
+                <div class="framework-header">
+                    <h2>Your Learning Framework</h2>
+                    <p>A visual roadmap from goals to focused action</p>
+                </div>
+                
+                <div class="framework-diagram">
+                    <!-- Goal Level -->
+                    <div class="framework-level">
+                        <div class="framework-node goal-node">
+                            <div class="node-icon">🎯</div>
+                            <h3>Main Goal</h3>
+                            <p>Ace Finals in Math, Physics & Chemistry</p>
+                            <div class="node-meta">2 weeks remaining</div>
+                        </div>
+                    </div>
+                    
+                    <div class="connector-line"></div>
+                    
+                    <!-- Milestones Level -->
+                    <div class="framework-level">
+                        <div class="framework-row">
+                            <div class="framework-node milestone-node">
+                                <div class="node-icon">📐</div>
+                                <h3>Mathematics</h3>
+                                <p>Complete calculus modules & practice exams</p>
+                                <div class="node-meta">Priority: High</div>
+                            </div>
+                            <div class="framework-node milestone-node">
+                                <div class="node-icon">⚡</div>
+                                <h3>Physics</h3>
+                                <p>Master mechanics & solve problem sets</p>
+                                <div class="node-meta">Priority: Medium</div>
+                            </div>
+                            <div class="framework-node milestone-node">
+                                <div class="node-icon">🧪</div>
+                                <h3>Chemistry</h3>
+                                <p>Understand organic reactions & lab work</p>
+                                <div class="node-meta">Priority: Medium</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="connector-line"></div>
+                    
+                    <!-- Tasks Level -->
+                    <div class="framework-level">
+                        <div class="framework-row">
+                            <div class="framework-node task-node">
+                                <div class="node-icon">📝</div>
+                                <h3>Study Sessions</h3>
+                                <p>Daily 2-hour focused blocks per subject</p>
+                            </div>
+                            <div class="framework-node task-node">
+                                <div class="node-icon">🔄</div>
+                                <h3>Practice Tests</h3>
+                                <p>Weekly mock exams to track progress</p>
+                            </div>
+                            <div class="framework-node task-node">
+                                <div class="node-icon">👥</div>
+                                <h3>Review Sessions</h3>
+                                <p>Group study & concept reinforcement</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="connector-line"></div>
+                    
+                    <!-- Focus Sessions Level -->
+                    <div class="framework-level">
+                        <div class="framework-node focus-node">
+                            <div class="node-icon">⏱️</div>
+                            <h3>Focus Sessions</h3>
+                            <p>25-min deep work blocks with 5-min breaks</p>
+                            <div class="node-meta">Pomodoro Technique</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ABOUT PAGE -->
+        <section id="about" class="page">
+            <div class="about-container">
+                <div class="about-content">
+                    <h2>About FocusFlow-AI</h2>
+                    <div class="about-section">
+                        <h3>Mission</h3>
+                        <p>Empowering students to transform overwhelming schedules into clear, actionable plans through intelligent automation and personalized insights.</p>
+                    </div>
+                    <div class="about-section">
+                        <h3>Features</h3>
+                        <ul class="feature-list">
+                            <li>
+                                <span class="feature-icon">🔌</span>
+                                <div>
+                                    <strong>Offline-First</strong>
+                                    <p>Work seamlessly without internet connection</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="feature-icon">🤖</span>
+                                <div>
+                                    <strong>AI-Enhanced</strong>
+                                    <p>Smart scheduling powered by advanced AI when online</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="feature-icon">🎨</span>
+                                <div>
+                                    <strong>Personalized</strong>
+                                    <p>Adapts to your unique learning style and priorities</p>
+                                </div>
+                            </li>
+                            <li>
+                                <span class="feature-icon">📊</span>
+                                <div>
+                                    <strong>Visual Planning</strong>
+                                    <p>See your goals as actionable frameworks</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="about-section">
+                        <h3>Built For Students</h3>
+                        <p>Whether you're preparing for finals, managing multiple projects, or planning long-term goals, FocusFlow-AI helps you stay organized and focused on what matters most.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
