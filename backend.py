@@ -1,7 +1,6 @@
 """
-FocusFlow-AI Backend - FREE AI Edition
+FocusFlow-AI Backend
 =======================================
-Works with Google Gemini or Groq (both 100% FREE)
 """
 
 from flask import Flask, request, jsonify, send_from_directory
@@ -20,14 +19,14 @@ try:
     GEMINI_AVAILABLE = True
 except ImportError:
     GEMINI_AVAILABLE = False
-    print("⚠ google-generativeai not installed. Run: pip install google-generativeai")
+    print(" google-generativeai not installed. Run: pip install google-generativeai")
 
 try:
     from groq import Groq
     GROQ_AVAILABLE = True
 except ImportError:
     GROQ_AVAILABLE = False
-    print("⚠ groq not installed. Run: pip install groq")
+    print(" groq not installed. Run: pip install groq")
 
 # ================================
 # LOGGING
@@ -81,7 +80,7 @@ if config.AI_PROVIDER == 'gemini':
     try:
         genai.configure(api_key=config.GEMINI_API_KEY)
         ai_client = genai.GenerativeModel('gemini-2.5-flash')
-        logger.info("✓ AI: Google Gemini (FREE)")
+        logger.info("/ AI: Google Gemini (FREE)")
     except Exception as e:
         logger.error(f"Gemini setup failed: {e}")
         config.AI_ENABLED = False
@@ -89,13 +88,13 @@ if config.AI_PROVIDER == 'gemini':
 elif config.AI_PROVIDER == 'groq':
     try:
         ai_client = Groq(api_key=config.GROQ_API_KEY)
-        logger.info("✓ AI: Groq (FREE)")
+        logger.info("/ AI: Groq (FREE)")
     except Exception as e:
         logger.error(f"Groq setup failed: {e}")
         config.AI_ENABLED = False
 
 if not config.AI_ENABLED:
-    logger.info("✓ AI: Fallback mode (no API needed)")
+    logger.info("/ AI: Fallback mode (no API needed)")
 
 # ================================
 # DATABASE
@@ -518,13 +517,14 @@ if __name__ == '__main__':
     print("FocusFlow-AI Backend - FREE AI Edition")
     print("=" * 60)
     if config.AI_ENABLED:
-        print(f"✓ AI Provider: {config.AI_PROVIDER.upper()}")
-        print(f"✓ Model: {config.AI_MODEL}")
-        print(f"✓ Cost: $0.00 (FREE)")
+        print(f"/ AI Provider: {config.AI_PROVIDER.upper()}")
+        print(f"/ Model: {config.AI_MODEL}")
+        print(f"/ Cost: $0.00 (FREE)")
     else:
-        print("✓ AI Provider: Fallback (no API needed)")
-        print("✓ Cost: $0.00")
-    print(f"✓ Server: http://localhost:{config.PORT}")
+        print("/ AI Provider: Fallback (no API needed)")
+        print("/ Cost: $0.00")
+    print(f"/ Server: http://localhost:{config.PORT}")
     print("=" * 60)
     
     app.run(debug=True, host='0.0.0.0', port=config.PORT, threaded=True)
+
